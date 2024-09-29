@@ -2,14 +2,13 @@
 import { getNestedField } from "@/lib/payload-utils";
 import Image from "next/image";
 // import { cookies } from "next/headers";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import Link from "next/link";
 import { formatPrice } from "@/lib/formatters";
 // import { getPayloadClient } from "@/server/payload/get-payload";
 import { Product, User } from "@/server/payload/payload-types";
 import PaymentStatus from "./_components/PaymentStatus";
 import { trpc } from "@/server/trpc/client";
-import { XCircle } from "lucide-react";
 import { TRANSACTION_FEE } from "@/models/constants";
 
 interface PageProps {
@@ -36,7 +35,7 @@ const ThankYouPage = ({ searchParams }: PageProps) => {
 
   if (!order || isLoading) return <div>Loading...</div>;
 
-  const orderUserId = getNestedField(order.user, "id");
+  // const orderUserId = getNestedField(order.user, "id");
   // typeof order.user === "string" ? order.user : order.user.id;
 
   // if (orderUserId !== user?.id) {

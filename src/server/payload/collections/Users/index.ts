@@ -1,16 +1,18 @@
 import { CollectionConfig } from "payload/types";
 import { admins } from "../Admins/access/admins";
 import { user } from "./access/user";
+import { PrimaryActionEmailHtml } from "../../../../app/_components/emails/PrimaryActionEmail";
 
 export const Users: CollectionConfig = {
   slug: "users",
   auth: {
     verify: {
       generateEmailHTML: ({ token }) => {
-        return `
-          <p>Click the link below to verify your email address:</p>
-          <a href="${process.env.NEXT_PUBLIC_SERVER_URL}/verify-email?token=${token}">Verify Email</a>
-        `;
+        return PrimaryActionEmailHtml({
+          actionLabel: "verify your account",
+          buttonText: "Verify Account",
+          href: `${process.env.NEXT_PUBLIC_SERVER_URL}/verify-email?token=${token}`,
+        });
       },
     },
   },

@@ -1,13 +1,15 @@
 import { Input, Label } from "@/app/_components/ui";
 import { cn } from "@/lib/utils";
+import { FieldError } from "react-hook-form";
 
 interface FormInputProps {
   label: string;
   field: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   register: any;
   type?: string;
   placeholder: string;
-  error: any;
+  error?: FieldError;
 }
 
 export const FormInput = ({

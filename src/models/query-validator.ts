@@ -6,4 +6,5 @@ export const QueryValidator = z.object({
   limit: z.number().optional(),
 });
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface IQueryValidator extends z.infer<typeof QueryValidator> {}

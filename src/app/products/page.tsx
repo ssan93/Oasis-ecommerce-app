@@ -1,7 +1,7 @@
 "use client";
-import { trpc } from "@/server/trpc/client";
+// import { trpc } from "@/server/trpc/client";
 // import MaxWidthWrapper from "../_components/MaxWidthWrapper";
-import ProductListing from "./_components/ProductListing";
+// import ProductListing from "./_components/ProductListing";
 import MaxWidthWrapper from "../_components/MaxWidthWrapper";
 import ProductReel from "./_components/ProductReel";
 

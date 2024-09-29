@@ -12,6 +12,7 @@ export const stripeWebhookHandler = async (
   req: express.Request,
   res: express.Response,
 ) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const webhookRequest = req as any as WebhookRequest;
   const body = webhookRequest.rawBody;
   const signature = req.headers["stripe-signature"] || "";

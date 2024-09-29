@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 import { z } from "zod";
 
 export const AuthCredentialsSchema = z.object({

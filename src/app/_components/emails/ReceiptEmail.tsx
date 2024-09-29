@@ -1,5 +1,5 @@
 import { formatPrice } from "../../../lib/formatters";
-import { Order, Product } from "../../../server/payload/payload-types";
+import { Product } from "../../../server/payload/payload-types";
 
 import {
   Body,
@@ -26,6 +26,7 @@ interface ReceiptEmailProps {
   email: string;
   date: Date;
   orderId: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   order: any;
   // products_quantities: {
   //   product: Product;

@@ -15,7 +15,7 @@ export default function Page() {
   const searchParams = useSearchParams();
   const origin = searchParams.get("origin");
 
-  const { mutate: signIn, isPending } = trpc.auth.signIn.useMutation({
+  const { mutate: signIn } = trpc.auth.signIn.useMutation({
     onSuccess: async () => {
       toast.success("Signed in successfully'");
 

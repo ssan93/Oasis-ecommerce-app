@@ -61,7 +61,7 @@ export const authRouter = router({
           },
           res,
         });
-      } catch (error) {
+      } catch {
         throw new TRPCError({
           code: "UNAUTHORIZED",
           message: "Invalid email or password",

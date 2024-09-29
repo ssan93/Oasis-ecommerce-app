@@ -4,24 +4,12 @@ import { getNestedField } from "@/lib/payload-utils";
 import { Product } from "@/server/payload/payload-types";
 import { ImageIcon, X } from "lucide-react";
 import Image from "next/image";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectSeparator,
-  SelectTrigger,
-  SelectValue,
-} from "../ui/select";
-import { Separator } from "@radix-ui/react-separator";
-import { SelectGroup } from "@radix-ui/react-select";
 import { QuantitySelector } from "./QuantitySelector";
 
 interface CartItemProps {
   product: Product;
   quantity: number;
 }
-
-const MAX_QUANTITY = 10;
 
 const CartItem = ({ product, quantity }: CartItemProps) => {
   const { image } = product.images?.[0] ?? {};

@@ -48,23 +48,24 @@ export const validateAccess = async (request: Request) => {
   }
   try {
     // Convert the string to a Uint8Array
-    const encoder = new TextEncoder();
-    const secretData = encoder.encode(process.env.PAYLOAD_SECRET!);
+    // const encoder = new TextEncoder();
+    // const secretData = encoder.encode(process.env.PAYLOAD_SECRET!);
 
     // Create a hash of the secret
-    const hashBuffer = await crypto.subtle.digest("SHA-256", secretData);
+    // const hashBuffer = await crypto.subtle.digest("SHA-256", secretData);
 
     // Convert the hash to a hexadecimal string
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const hashHex = hashArray
-      .map((b) => b.toString(16).padStart(2, "0"))
-      .join("");
+    // const hashArray = Array.from(new Uint8Array(hashBuffer));
+    // const hashHex = hashArray
+    //   .map((b) => b.toString(16).padStart(2, "0"))
+    //   .join("");
 
     // Slice the first 32 characters
-    const secret = hashHex.slice(0, 32);
+    // const secret = hashHex.slice(0, 32);
 
-    const [headerB64, payloadB64, signatureB64] = token.split(".");
-    const header = JSON.parse(atob(headerB64));
+    // const [headerB64, payloadB64, signatureB64] = token.split(".");
+    const [payloadB64] = token.split(".");
+    // const header = JSON.parse(atob(headerB64));
     const payload = JSON.parse(atob(payloadB64));
     return payload;
 

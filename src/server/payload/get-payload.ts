@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import dotenv from "dotenv";
 import type { InitOptions } from "payload/config";
 import payload, { Payload } from "payload";

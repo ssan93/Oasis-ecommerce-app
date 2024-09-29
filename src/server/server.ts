@@ -56,7 +56,7 @@ const start = async () => {
     app.listen(PORT, async () => {
       payload.logger.info(`Next.js is now building...`);
       // @ts-expect-error - nextBuild is not typed
-      await nextBuild(path.join(__dirname, "../"));
+      await nextBuild(path.join(__dirname, "../../"));
       process.exit();
     });
 

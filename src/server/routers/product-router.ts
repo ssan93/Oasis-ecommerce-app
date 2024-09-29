@@ -3,6 +3,7 @@ import { QueryValidator } from "../../models/query-validator";
 import { getPayloadClient } from "../payload/get-payload";
 import { publicProcedure, router } from "../trpc/trpc";
 import { TRPCError } from "@trpc/server";
+import { Product } from "../payload/payload-types";
 
 export const productRouter = router({
   getProducts: publicProcedure
@@ -35,7 +36,7 @@ export const productRouter = router({
         sort,
       });
 
-      return products;
+      return products as unknown as Product[];
     }),
   getProductsByCategory: publicProcedure
     .input(
@@ -92,7 +93,7 @@ export const productRouter = router({
         id,
       });
 
-      return product;
+      return product as unknown as Product;
     }),
   getCategoryId: publicProcedure
     .input(z.object({ category: z.string() }))
@@ -116,6 +117,6 @@ export const productRouter = router({
         });
       }
 
-      return docs[0].id;
+      return docs[0].id as string;
     }),
 });

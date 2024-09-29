@@ -1,6 +1,6 @@
 import { CollectionConfig } from "payload/types";
 import { admins } from "../Admins/access/admins";
-import { myOrder } from "./access/my-order";
+// import { myOrder } from "./access/my-order";
 
 export const Orders: CollectionConfig = {
   slug: "orders",

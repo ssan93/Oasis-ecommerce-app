@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useCart } from "@/hooks/use-cart";
 import { Product } from "@/server/payload/payload-types";
-import { Button, Input } from "@/app/_components/ui";
+import { Button } from "@/app/_components/ui";
 import {
   Select,
   SelectContent,
