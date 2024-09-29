@@ -3,5 +3,6 @@
     "next/core-web-vitals",
     "next/typescript",
     "plugin:tailwindcss/recommended"
-  ]
+  ],
+  "ignorePatterns": ["dist/*"]
 }

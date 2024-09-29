@@ -5,7 +5,6 @@ import { WebhookRequest } from "../../../server/server";
 import { stripe } from "../../../lib/stripe";
 import { Resend } from "resend";
 import { getPayloadClient } from "../../../server/payload/get-payload";
-import { Product } from "../../../server/payload/payload-types";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 

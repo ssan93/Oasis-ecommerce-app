@@ -8,10 +8,10 @@ const nextConfig = {
         pathname: "**",
         port: "3000",
       },
-      // {
-      // 	protocol: "https",
-      // 	hostname: "digitalhippo-production.up.railway.app",
-      // },
+      {
+        protocol: "https",
+        hostname: "oasis-ecommerce-app.vercel.app",
+      },
     ],
   },
 };
