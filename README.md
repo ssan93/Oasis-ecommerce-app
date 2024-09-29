@@ -34,3 +34,23 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Technologies
+
+Frontend
+
+- [Next.js](https://nextjs.org)
+- [TypeScript](https://www.typescriptlang.org)
+- Styling: [Tailwind CSS](https://tailwindcss.com)
+- Icons: [Lucide](https://lucide.dev) (included with Shadcn)
+
+Backend
+
+- Headless CMS: [Payload](https://payloadcms.com)
+- Database: [MongoDB](https://www.mongodb.com)
+- Payments: [Stripe](https://stripe.com)
+
+Schemas
+
+- Types safety: [TRPC](https://trpc.io) (For tight coupling between frontend and backend)
+- Types validator: [Zod](https://zod.dev)
