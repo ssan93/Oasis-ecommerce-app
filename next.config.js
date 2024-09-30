@@ -8,7 +8,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "oasis-ecommerce-app.vercel.app",
+        hostname: "oasis-ecommerce-app-production.up.railway.app",
       },
     ],
   },
