@@ -4,7 +4,6 @@ import { privateProcedure, router } from "../trpc/trpc";
 import { TRPCError } from "@trpc/server";
 import Stripe from "stripe";
 import { stripe } from "../../lib/stripe";
-import { Order } from "../payload/payload-types";
 
 export const paymentRouter = router({
   createSession: privateProcedure
@@ -91,24 +90,7 @@ export const paymentRouter = router({
         return { url: null };
       }
     }),
-  getOrder: privateProcedure
-    .input(z.object({ orderId: z.string() }))
-    .query(async ({ input }) => {
-      const { orderId } = input;
 
-      const payload = await getPayloadClient();
-
-      const order = await payload.findByID({
-        collection: "orders",
-        id: orderId,
-      });
-
-      if (!order) {
-        throw new TRPCError({ code: "NOT_FOUND" });
-      }
-
-      return order as unknown as Order;
-    }),
   pollOrderStatus: privateProcedure
     .input(z.object({ orderId: z.string() }))
     .query(async ({ input }) => {

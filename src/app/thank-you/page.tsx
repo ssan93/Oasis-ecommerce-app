@@ -10,6 +10,8 @@ import { Product, User } from "@/server/payload/payload-types";
 import PaymentStatus from "./_components/PaymentStatus";
 import { trpc } from "@/server/trpc/client";
 import { TRANSACTION_FEE } from "@/models/constants";
+import { useCart } from "@/hooks/use-cart";
+import { useEffect } from "react";
 
 interface PageProps {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -19,17 +21,23 @@ const ThankYouPage = ({ searchParams }: PageProps) => {
   const orderId =
     typeof searchParams.orderId === "string" ? searchParams.orderId : null;
   // const nextCookies = cookies();
-
   // const { user } = await getServerSideUser(nextCookies);
+
+  const { clearCart } = useCart();
+
+  useEffect(() => {
+    clearCart();
+  }, [clearCart]);
 
   if (!orderId) {
     return notFound();
   }
+
   const {
     data: order,
     isError,
     isLoading,
-  } = trpc.payment.getOrder.useQuery({ orderId });
+  } = trpc.order.getOrder.useQuery({ orderId });
 
   if (isError) return notFound();
 

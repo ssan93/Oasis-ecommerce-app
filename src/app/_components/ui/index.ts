@@ -7,3 +7,4 @@ export * from "./sheet";
 export * from "./select";
 export * from "./skeleton";
 export * from "./dropdown-menu";
+export * from "./card";

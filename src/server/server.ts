@@ -9,6 +9,8 @@ import { IncomingMessage } from "http";
 import { stripeWebhookHandler } from "../app/webhooks/stripe/webhooks";
 import bodyParser from "body-parser";
 import path from "path";
+// import { PayloadRequest } from "payload/types";
+// import { parse } from "url";
 
 dotenv.config({ path: [".env.local", ".env"] });
 
@@ -34,6 +36,8 @@ export type WebhookRequest = IncomingMessage & {
   rawBody: Buffer;
 };
 
+// const protectedRoutes = ["/orders", "/cart"];
+
 const start = async () => {
   const webhookMiddleware = bodyParser.json({
     verify: (req: WebhookRequest, _, buffer) => {
@@ -51,6 +55,22 @@ const start = async () => {
       },
     },
   });
+
+  // const useProtectedRoutes = (route: string) => {
+  //   const router = express.Router();
+  //   router.use(payload.authenticate);
+  //   router.get("/", (req, res) => {
+  //     const request = req as PayloadRequest;
+  //     if (!request.user) {
+  //       return res.redirect(`/sign-in?origin=${route.slice(1)}`);
+  //     }
+  //     const parsedUrl = parse(req.url!, true);
+  //     return nextApp.render(req, res, route, parsedUrl.query);
+  //   });
+  //   app.use(route, router);
+  // };
+
+  // protectedRoutes.forEach(useProtectedRoutes);
 
   if (process.env.NEXT_BUILD) {
     app.listen(PORT, async () => {

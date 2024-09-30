@@ -19,13 +19,8 @@ export default function Page() {
     onSuccess: async () => {
       toast.success("Signed in successfully'");
 
-      if (origin) {
-        router.push(`/${origin}`);
-        router.refresh();
-        return;
-      }
-
-      router.push("/");
+      const redirectUrl = origin ? `/${origin}` : "/";
+      router.push(redirectUrl);
       router.refresh();
     },
     onError: (err) => {

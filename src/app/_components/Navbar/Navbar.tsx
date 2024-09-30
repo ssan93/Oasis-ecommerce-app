@@ -9,17 +9,18 @@ import UserAccountNav from "./UserAccountNav";
 import { NavItem } from "./NavItem";
 
 const navItems = [
-  // {
-  //   label: "Home",
-  //   href: "/",
-  // },
+  {
+    label: "Home",
+    href: "/",
+  },
   {
     label: "Products",
     href: "/products",
   },
   {
-    label: "Orders",
+    label: "My Orders",
     href: "/orders",
+    secured: true,
   },
 ];
 
@@ -43,9 +44,11 @@ export const Navbar = async () => {
             </div>
 
             <div className="ml-6">
-              {navItems.map((item) => (
-                <NavItem key={item.label} item={item} />
-              ))}
+              {navItems.map((item) => {
+                return item.secured && !user ? null : (
+                  <NavItem key={item.label} item={item} />
+                );
+              })}
             </div>
 
             <div className="ml-auto flex items-center">
