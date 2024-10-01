@@ -14,13 +14,15 @@ interface ProductReelProps {
 }
 
 const useQuery = (query: IQueryValidator) => {
-  const { category } = query;
+  const { category, tags } = query;
   if (category) {
     const { data: categoryId } = trpc.product.getCategoryId.useQuery({
       category,
     });
     query = { ...query, category: categoryId };
   }
+  if (tags) query = { ...query, tags };
+
   return trpc.product.getProducts.useQuery({ query });
 };
 

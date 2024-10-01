@@ -2,6 +2,7 @@ import { ArrowDownToLine, CheckCircle, Leaf } from "lucide-react";
 import Link from "next/link";
 import MaxWidthWrapper from "./_components/MaxWidthWrapper";
 import { Button, buttonVariants } from "@/app/_components/ui";
+import ProductReel from "./products/_components/ProductReel";
 
 const perks = [
   {
@@ -30,12 +31,11 @@ export default function Home() {
       <MaxWidthWrapper>
         <div className="mx-auto flex max-w-3xl flex-col items-center py-20 text-center">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Your marketplace for high-quality{" "}
-            <span className="text-blue-600">digital assets</span>.
+            Get your daily dose of <span className="text-blue-600">coffee</span>
+            .
           </h1>
           <p className="mt-6 max-w-prose text-lg text-muted-foreground">
-            Welcome to DigitalHippo. Every asset on our platform is verified by
-            our team to ensure our highest quality standards.
+            Welcome to Oasis. We're a shop that sells high-quality coffee beans
           </p>
           <div className="mt-6 flex flex-col gap-4 sm:flex-row">
             <Link href="/products" className={buttonVariants()}>
@@ -45,11 +45,11 @@ export default function Home() {
           </div>
         </div>
 
-        {/* <ProductReel
-          query={{ sort: "desc", limit: 4 }}
-          href="/products?sort=recent"
+        <ProductReel
+          query={{ sort: "desc", limit: 4, tags: ["new"] }}
+          href="/products?sort=desc"
           title="Brand new"
-        /> */}
+        />
       </MaxWidthWrapper>
 
       <section className="border-t border-gray-200 bg-gray-50">

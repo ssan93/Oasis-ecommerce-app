@@ -17,12 +17,20 @@ export const productRouter = router({
       const { query } = input;
       const { sort, limit, ...queryOpts } = query;
 
-      const parsedQueryOpts: Record<string, { equals: string }> = {};
+      const parsedQueryOpts: Record<
+        string,
+        { equals: string } | { in: string[] }
+      > = {};
 
       Object.entries(queryOpts).forEach(([key, value]) => {
-        parsedQueryOpts[key] = {
-          equals: value,
-        };
+        if (typeof value !== "string") {
+          parsedQueryOpts[key] = {
+            in: value,
+          };
+        } else
+          parsedQueryOpts[key] = {
+            equals: value,
+          };
       });
 
       const payload = await getPayloadClient();
@@ -33,7 +41,7 @@ export const productRouter = router({
           ...parsedQueryOpts,
         },
         limit,
-        sort,
+        sort: sort === "desc" ? "-updatedAt" : "updatedAt",
       });
 
       return products as unknown as Product[];
