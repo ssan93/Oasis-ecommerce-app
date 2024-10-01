@@ -35,7 +35,8 @@ export default function Home() {
             .
           </h1>
           <p className="mt-6 max-w-prose text-lg text-muted-foreground">
-            Welcome to Oasis. We're a shop that sells high-quality coffee beans
+            Welcome to Oasis. We&apos;re a shop that sells high-quality coffee
+            beans
           </p>
           <div className="mt-6 flex flex-col gap-4 sm:flex-row">
             <Link href="/products" className={buttonVariants()}>
